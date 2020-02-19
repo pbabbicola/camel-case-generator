@@ -134,5 +134,5 @@ func uppercaseWord(exp *regexp.Regexp, index int, s string) (int, []byte) {
 		c ^= ' ' // Make it a capital leter
 		identifier = append(identifier, byte(c))
 	}
-	return indexes[1], identifier
+	return index + indexes[1], identifier
 }

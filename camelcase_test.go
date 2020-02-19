@@ -34,8 +34,8 @@ func TestCamelCaseImproved(t *testing.T) {
 	tests := []struct {
 		in, want string
 	}{
-		//{"id", "ID"},
-		//{"new_id", "NewID"},
+		{"id", "ID"},
+		{"new_id", "NewID"},
 		{"some_id_middle", "SomeIDMiddle"},
 		{"id_begins", "IDBegins"},
 	}
