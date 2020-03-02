@@ -52,6 +52,17 @@ func isASCIIDigit(c byte) bool {
 	return '0' <= c && c <= '9'
 }
 
+// MustCamelCase creates a camelcase generator that will panic if it
+// cannot compile the regex for it.
+func MustCamelCase(identifiers []string) func(string) string {
+	camelCase, err := CamelCase(identifiers)
+	if err != nil {
+		panic(fmt.Errorf("cannot create camelcase generator: %w", err))
+	}
+
+	return camelCase
+}
+
 // CamelCase returns a camel case generator that checks for
 // any words that we might want to make uppercase
 func CamelCase(uppercased []string) (func(string) string, error) {
